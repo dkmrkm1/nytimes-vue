@@ -10,6 +10,8 @@ body {
   font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
   background: #f1f1f1;
 }
+
+/* card start */
 .card {
   border-radius: 5px;
 }
@@ -40,6 +42,18 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.card.medium {
+  height: 500px;
+}
+/* card end */
+
+/* nav-list */
+a.btn:hover {
+  background-color: #f97148;
+}
+li a.btn {
+  background: #ff5722;
+}
 span.title {
   font-size: 1.4rem;
   color: rgba(0,0,0,0.54);
@@ -62,10 +76,43 @@ ul > li {
 .select-wrapper input.select-dropdown:focus {
   border-bottom: 1px solid #dd4b39;
 }
+span.sel-tag {
+  color: #dd4b39;
+}
+ul li a {
+  color: rgba(0,0,0,0.54);
+}
+form ul .sel-list {
+   margin-top:11px;
+   width:210px;
+}
 
 /* update */
 .select-wrapper+label {
   top: -18px;
   font-size: .75rem;
   text-align: left;
+}
+
+/* material-icons */
+.material-icons {
+  color: black;
+}
+
+/* nav IE */
+nav ul#nav-mobile li:first-child a {
+  overflow: auto;
+}
+
+/* scroll */
+.scroll-up {
+  bottom: 75px;
+  right: 60px;
+}
+.scroll-up .btn-floating {
+  background: #ff5722;
+}
+.scroll-effect:hover {
+  margin-top: -6px;
+  transition: .3s;
 }
