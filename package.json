@@ -1,0 +1,11 @@
+{
+  "name": "nodejs-express-app1",
+  "version": "0.0.0",
+  "description": "Multiple Buildpacks App",
+  "author": {
+    "name": "SimonBor"
+  },
+  "dependencies": {
+    "express": "~4.9.0"
+  }
+}
