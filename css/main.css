@@ -1,0 +1,71 @@
+@charset "UTF-8";
+
+@media only screen and (min-width: 992px){
+  nav .brand-logo {
+    margin-left: 3em;
+  }
+}
+
+body {
+  font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+  background: #f1f1f1;
+}
+.card {
+  border-radius: 5px;
+}
+.card .card-title {
+  font-size: 1.4rem;
+  line-height: 25px !important;
+  font-weight: bold;
+}
+.card .card-content {
+  padding: 13px;
+}
+.card .card-image img {
+  border-radius: 4px 4px 0 0;
+}
+.card.medium .card-image+.card-content {
+  max-height: 50%;
+}
+.card-content .card-title+p {
+  color: rgba(0,0,0,0.87);
+}
+.card {
+  text-decoration: none;
+}
+.card:hover .card-title {
+  text-decoration: underline;
+}
+.card-content p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+span.title {
+  font-size: 1.4rem;
+  color: rgba(0,0,0,0.54);
+  font-family: 'Yu Gothic', sans-serif;
+}
+nav a.logo {
+  color: rgba(0,0,0,0.54);
+}
+nav a.logo {
+  font-size: 2.5rem;
+  font-family: 'Impact', sans-serif;
+}
+ul > li {
+  display: table-cell;
+}
+.dropdown-content li>a,
+.dropdown-content li>span {
+  color: rgba(0,0,0,0.54);
+}
+.select-wrapper input.select-dropdown:focus {
+  border-bottom: 1px solid #dd4b39;
+}
+
+/* update */
+.select-wrapper+label {
+  top: -18px;
+  font-size: .75rem;
+  text-align: left;
+}

@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>NYTIMES.tokyo</title>
+  <title>NYTimes.tokyo</title>
 
+  <!-- jQuery -->
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <!-- materialize -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
@@ -12,60 +14,24 @@
   <!-- favicon -->
   <link rel="shortcut icon" href="img/favicon2.ico">
 
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="css/main.css" />
+  <link rel="stylesheet" type="text/css" href="css/materialize.css" />
+
+  <!-- JS -->
+  <script type="text/javascript" src="js/materialize.js"></script>
+
 </head>
 <body>
 <style type="text/css">
-@media only screen and (min-width: 992px){
-  nav .brand-logo {
-    margin-left: 3em;
-  }
+span.sel-tag {
+  color: #dd4b39;
 }
-
-body {
-  font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
-  background: #f1f1f1;
+.card.medium {
+  height: 500px;
 }
-.card {
-  border-radius: 5px;
-}
-.card .card-title {
-  font-size: 1.4rem;
-  line-height: 25px !important;
-  font-weight: bold;
-}
-.card .card-content {
-  padding: 13px;
-}
-.card .card-image img {
-  border-radius: 4px 4px 0 0;
-}
-.card.medium .card-image+.card-content {
-  max-height: 50%;
-}
-.card-content .card-title+p {
-  color: rgba(0,0,0,0.87);
-}
-.card {
-  text-decoration: none;
-}
-.card:hover .card-title {
-  text-decoration: underline;
-}
-.card-content p {
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-span.title {
-  font-size: 1.4rem;
+ul li a {
   color: rgba(0,0,0,0.54);
-  font-family: 'Yu Gothic', sans-serif;
-}
-nav a.logo {
-  color: rgba(0,0,0,0.54);
-}
-nav a.logo {
-  font-size: 2.5rem;
-  font-family: 'Impact', sans-serif;
 }
 </style>
       <div id="app">
@@ -74,24 +40,36 @@ nav a.logo {
                     <div class="nav-wrapper">
                         <a href="#!" class="logo brand-logo">NYTimes.tokyo</a>
                         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                        <ul class="right hide-on-med-and-down">
-                          <li>
+                        <!-- <ul class="right hide-on-med-and-down center-align">
+                          <li class="center-align"> -->
                         <form>
-                            <!-- <div class="input-field col s12 m8"> -->
-                            <!-- <div class="input-field"> -->
-                              <select v-model="section" style="display: inherit">
-                                <option v-for="section in sections" :value="section">{{ section }}</option>
-                              </select>
-                            </li>
-                            <!-- </div> -->
-                            <!-- <div class="col s12 m4" style="margin-top:15px;"> -->
-                            <!-- <div> -->
-                            <li>
-                              <a @click="getPosts(section)" class="waves-effect waves-light btn red darken-3">CHANGE</a>
-                            <!-- </div> -->
-                          </form>
-                        </li>
-                        </ul>
+                          <div style="margin-right:30px;">
+                          <ul class="right hide-on-med-and-down center-align">
+                              <li class="center-align" style="margin-top:13px; width:210px;">
+                                <div input-field>
+                                  <select v-model="section">
+                                    <option v-for="section in sections" :value="section"># {{ section }}</option>
+                                  </select>
+                                  <label>Category</label>
+                                </div>
+                              </li>
+                              <li>
+                                <a @click="getPosts(section)" class="waves-effect waves-light btn red darken-1">CHANGE</a>
+                              </li>
+                              <li>
+                                <a href="#" class="">Home</a>
+                              </li>
+                              <li>
+                                <a href="#" class="">About</a>
+                              </li>
+                              <li>
+                                <a href="#" class="">Contact</a>
+                              </li>
+                          </ul>
+                        </div>
+                        </form>
+                        <!-- </li> -->
+                        <!-- </ul> -->
                         <!-- <ul class="right hide-on-med-and-down">
                             <li>
                                 Home
@@ -112,7 +90,7 @@ nav a.logo {
       <div class="row">
         <div class="col s12">
             <div class="col s12">
-              <span class="title">NEW ARRIVAL ARTICLE</span>
+              <span class="title">NEW TOP STORIES</span>
             </div>
           </div>
 
@@ -165,16 +143,18 @@ nav a.logo {
   </div>
 
   <!-- import js -->
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="config.js"></script>
   <script src="app.js"></script>
   <script type="text/javascript">
-    document.addEventListener('DOMContentLoaded', function() {
-      var elems = document.querySelectorAll('select');
-      var instances = M.FormSelect.init(elems, options);
+    $(document).ready(function(){
+      $('select').formSelect();
     });
+
+    var instance = M.FormSelect.getInstance(elem);
+    instance.getSelectedValues();
   </script>
-  
+
 </body>
 </html>
