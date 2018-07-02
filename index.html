@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>NYTimes.tokyo</title>
@@ -22,16 +23,18 @@
   <script type="text/javascript" src="js/materialize.js"></script>
 
 </head>
-<body>
-<style type="text/css">
 
-</style>
+<body>
+  <style type="text/css">
+  </style>
   <div id="app">
     <header>
       <nav>
         <div class="nav-wrapper white">
           <a href="#!" class="logo brand-logo">NYTimes.tokyo</a>
-          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+            <i class="material-icons">menu</i>
+          </a>
           <form class="right hide-on-med-and-down">
             <ul>
               <li class="sel-list">
@@ -44,70 +47,88 @@
               <li>
                 <a @click="getPosts(section)" class="waves-effect waves-light btn">CHANGE</a>
               </li>
-              <li><a href="#" class="">Home</a></li>
-              <li><a href="about.html" class="">About</a></li>
-              <li><a href="contact.html" class="">Contact</a></li>
+              <li>
+                <a href="#" class="">Home</a>
+              </li>
+              <li>
+                <a href="about.html" class="">About</a>
+              </li>
+              <li>
+                <a href="contact.html" class="">Contact</a>
+              </li>
             </ul>
           </form>
         </div>
       </nav>
     </header>
     <div class="container" style="margin-top: 17px;">
-    <div class="section">
-      <div class="row">
-        <div class="col s12">
+      <div class="section">
+        <div class="row">
+          <div class="col s12">
             <div class="col s12">
               <span class="title">NEW TOP STORIES</span>
             </div>
           </div>
-            <!-- preloader start -->
-            <div v-if="loading" class="preloader-wrapper big active" style="display: inline-block; text-align: center; margin: 10px auto;">
-              <div class="spinner-layer spinner-blue">
-                <div class="circle-clipper left">
-                  <div class="circle"></div>
-                </div><div class="gap-patch">
-                  <div class="circle"></div>
-                </div><div class="circle-clipper right">
-                  <div class="circle"></div>
-                </div>
+          <!-- preloader start -->
+          <div v-if="loading" class="preloader-wrapper big active" style="display: inline-block; text-align: center; margin: 10px auto;">
+            <div class="spinner-layer spinner-blue">
+              <div class="circle-clipper left">
+                <div class="circle"></div>
               </div>
-
-              <div class="spinner-layer spinner-red">
-                <div class="circle-clipper left">
-                  <div class="circle"></div>
-                </div><div class="gap-patch">
-                  <div class="circle"></div>
-                </div><div class="circle-clipper right">
-                  <div class="circle"></div>
-                </div>
+              <div class="gap-patch">
+                <div class="circle"></div>
               </div>
-        
-              <div class="spinner-layer spinner-yellow">
-                <div class="circle-clipper left">
-                  <div class="circle"></div>
-                </div><div class="gap-patch">
-                  <div class="circle"></div>
-                </div><div class="circle-clipper right">
-                  <div class="circle"></div>
-                </div>
-              </div>
-        
-              <div class="spinner-layer spinner-green">
-                <div class="circle-clipper left">
-                  <div class="circle"></div>
-                </div><div class="gap-patch">
-                  <div class="circle"></div>
-                </div><div class="circle-clipper right">
-                  <div class="circle"></div>
-                </div>
+              <div class="circle-clipper right">
+                <div class="circle"></div>
               </div>
             </div>
-            <!-- preloader end -->
+
+            <div class="spinner-layer spinner-red">
+              <div class="circle-clipper left">
+                <div class="circle"></div>
+              </div>
+              <div class="gap-patch">
+                <div class="circle"></div>
+              </div>
+              <div class="circle-clipper right">
+                <div class="circle"></div>
+              </div>
+            </div>
+
+            <div class="spinner-layer spinner-yellow">
+              <div class="circle-clipper left">
+                <div class="circle"></div>
+              </div>
+              <div class="gap-patch">
+                <div class="circle"></div>
+              </div>
+              <div class="circle-clipper right">
+                <div class="circle"></div>
+              </div>
+            </div>
+
+            <div class="spinner-layer spinner-green">
+              <div class="circle-clipper left">
+                <div class="circle"></div>
+              </div>
+              <div class="gap-patch">
+                <div class="circle"></div>
+              </div>
+              <div class="circle-clipper right">
+                <div class="circle"></div>
+              </div>
+            </div>
+          </div>
+          <!-- preloader end -->
+
+          <!-- router-view start-->
+          <router-view></router-view>
+          <!-- router-view end-->
 
           <!-- news-list start -->
           <news-list :results="results"></news-list>
           <!-- news-list end -->
-          
+
         </div>
       </div>
     </div>
@@ -120,43 +141,44 @@
   </div>
 
   <!-- import js -->
-  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
   <script src="config.js"></script>
   <script src="app.js"></script>
   <script type="text/javascript">
-  $(function () {
-    var topBtn = $('.scroll-up');
-    topBtn.hide();
+    $(function () {
+      var topBtn = $('.scroll-up');
+      topBtn.hide();
 
-    // fadeIn and fadeOut
-    $(window).scroll(function () {
-      if ($(this).scrollTop() > 250) {
-        topBtn.fadeIn();
-      } else {
-        topBtn.fadeOut();
-      }
+      // fadeIn and fadeOut
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 250) {
+          topBtn.fadeIn();
+        } else {
+          topBtn.fadeOut();
+        }
+      });
+
+      // smooth scroll up
+      topBtn.click(function () {
+        $('body,html').animate({
+          scrollTop: 0
+        }, 400);
+        return false;
+      })
     });
-    
-    // smooth scroll up
-    topBtn.click(function () {
-      $('body,html').animate({
-        scrollTop: 0
-      }, 400);
-      return false;
-    })
-  });
 
-  $(document).ready(function(){
-    $('select').formSelect();
-    $('sidenav').sidenav();
-  });
+    $(document).ready(function () {
+      $('select').formSelect();
+      $('sidenav').sidenav();
+    });
 
-  var instance = M.FormSelect.getInstance(elem);
-  instance.getSelectedValues();
+    var instance = M.FormSelect.getInstance(elem);
+    instance.getSelectedValues();
 
-  $(".dropdown-button").dropdown();
+    $(".dropdown-button").dropdown();
   </script>
 
 </body>
+
 </html>
